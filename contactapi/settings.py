@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'jwt',
     'drf_yasg',
+    'corsheaders',
 
     # apps
     'authentication',
@@ -70,6 +71,7 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -141,6 +143,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+# CORS
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000"
+]
 
 # JWT
 JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
